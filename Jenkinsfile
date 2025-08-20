@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+        cron('H 9,18 * * *')
+    }
 
     tools {
         nodejs "NodeJS_20"
