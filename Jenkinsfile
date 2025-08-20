@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS_20"  
+        nodejs "NodeJS_20"
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm ci'   
+                bat 'npm ci'
             }
         }
 
@@ -36,9 +36,13 @@ pipeline {
             }
         }
 
-        stage('Generate Report') {
+        stage('Allure Report') {
             steps {
-                bat 'npx playwright show-report'
+                allure([
+                    includeProperties: false,
+                    jdk: '',
+                    results: [[path: 'allure-results']]
+                ])
             }
         }
     }
@@ -46,7 +50,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
-            junit '**/test-results/*.xml'  // If junit reporter is enabled
+            //junit '**/test-results/*.xml'
         }
     }
 }

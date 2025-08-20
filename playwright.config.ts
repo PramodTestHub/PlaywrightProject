@@ -25,7 +25,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['junit', { outputFile: 'test-results/results.xml' }],
-    ['html', { open: 'never' }]
+    ['allure-playwright']
   ],
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */

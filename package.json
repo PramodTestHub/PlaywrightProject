@@ -11,6 +11,7 @@
     "@playwright/test": "^1.55.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.17.2",
+    "allure-playwright": "^3.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
