@@ -8,37 +8,37 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-repo/playwright-ts.git'
+                git branch: 'main', url: 'https://github.com/PramodTestHub/PlaywrightProject'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'   // clean install (faster than npm install)
+                bat 'npm ci'   // clean install (faster than npm install)
             }
         }
 
         stage('Build TypeScript') {
             steps {
-                sh 'npx tsc'
+                bat 'npx tsc'
             }
         }
 
         stage('Install Browsers') {
             steps {
-                sh 'npx playwright install --with-deps'
+                bat 'npx playwright install --with-deps'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright test'
+                bat 'npx playwright test'
             }
         }
 
         stage('Generate Report') {
             steps {
-                sh 'npx playwright show-report'
+                bat 'npx playwright show-report'
             }
         }
     }
