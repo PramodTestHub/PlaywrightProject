@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS_20"  // configure this in Jenkins Global Tool Configuration
+        nodejs "NodeJS_20"  
     }
 
     stages {
@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm ci'   // clean install (faster than npm install)
+                bat 'npm ci'   
             }
         }
 
